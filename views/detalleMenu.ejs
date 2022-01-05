@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <%- include('partials/head') %>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <nav class="ps-top">
+      <div class="ps-bar ps-white ps-padding ps-card ps-nav">
+        <a href="#home" class="ps-bar-item ps-button">Pimienta & Sal</a>
+        <!-- Right-sided navbar links. Hide them on small screens -->
+        <div class="ps-right ps-hide-small">
+          <a href="#about" class="ps-bar-item ps-button">About</a>
+          <a href="#menu" class="ps-bar-item ps-button">Menu</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <%- include('partials/header') %>
+
+    <!-- Page content -->
+    <div class="ps-content">
+
+      <!-- Menu Section -->
+      <div class="ps-row ps-padding-64" id="menu">
+        <div class="ps-col l6 ps-padding-large">
+          <a href="/detail/<%= product.id %> "></a>
+          <h1 class="ps-center"><%= product.name %></h1>
+          <br />
+          <% if (product.detail) { %>
+          <h4><%= product.detail %></h4>
+         <% } else { %>  
+            <h4>Plato Típico</h4>
+         <% } %>  
+          <p class="ps-text-grey">
+           U$S <%= product.price.toFixed(2) %> 
+          </p>
+        </div>
+
+        <div class="ps-col l6 ps-padding-large ps-img-menu">
+          <img
+            src="/images/<%= product.image %> "
+            class="ps-round ps-image ps-opacity-min"
+            alt="Menu"
+          />
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <%- include('partials/footer') %>
+    </div>
+  </body>
+</html>
